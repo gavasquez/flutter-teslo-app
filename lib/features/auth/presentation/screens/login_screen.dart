@@ -87,8 +87,12 @@ class _LoginForm extends ConsumerWidget {
           ),
           const SizedBox(height: 30),
           CustomTextFormField(
+            // Cuando cambia el valor del input
             onChanged: (value) =>
                 ref.read(loginFromProvider.notifier).onPasswordChange(value),
+            // Cuando se da enter hace el submit
+            onFieldSubmitted: (_) =>
+                ref.read(loginFromProvider.notifier).onFormSubmit(),
             //* Solo mostrar el mensaje si ya a sido posteado el formulario
             errorMessage:
                 loginForm.isFormPosted ? loginForm.password.errorMessage : null,
