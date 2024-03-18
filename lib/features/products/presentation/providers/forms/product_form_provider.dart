@@ -108,6 +108,10 @@ class ProductoFormNotifier extends StateNotifier<ProductFormState> {
     }
   }
 
+  void updateProductImage(String path) {
+    state = state.copyWith(images: [...state.images, path]);
+  }
+
   void _touchedEveryThing() {
     state = state.copyWith(
       isFormValid: Formz.validate([
